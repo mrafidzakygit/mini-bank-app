@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer Dana</title>
+    <h1 class="text-center">Transaksi Pengiriman Dana</h1>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<div id="data-collection" class="container">
+    <span th:if="${sukses}" th:text="${sukses}" ></span>
+    <br>
+    <div id="data-transfer" class="mb-3">
+        <form class="row g-3" th:action="@{/transfer/save}" method="post" style="width: 30%" th:object="${transferModel}">
+            <div class="col-12">
+                <label class="form-label">No Rekening Pengirim</label>
+                <select name="providers" id="providers" class="form-control" th:field="*{pengirim.noRekening}">
+                    <option th:each="pengirimnew : ${rekenings}"
+                            th:value="${pengirimnew.noRekening}"
+                            th:text="${pengirimnew.noRekening}">
+                    </option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-success mb-2">Cek Pengirim</button>
+            <div class="col-12">
+                <label class="form-label">No Rekening Penerima</label>
+                <!--<input type="text" class="form-control" th:field="${transferModel.xx}"/>-->
+                <select name="provider" id="provider" class="form-control" th:field="*{penerima.noRekening}">
+                    <option th:each="penerimanew : ${rekenings}"
+                            th:value="${penerimanew.noRekening}"
+                            th:text="${penerimanew.noRekening}">
+                    </option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-success">Cek Penerima</button>
+            <div class="col-12">
+                <label class="form-label">Jumlah Amount</label>
+                <div>
+                    <input type="text" class="form-control" id="inputjumlah" th:field="*{jumlah}">
+                </div>
+            </div>
+            <br>
+            <div class="col-12">
+                <input type="submit" class="btn btn-primary" value="Transfer Dana"/>
+            </div>
+            <br>
+        </form>
+        <span th:if="${success}" th:text="${success}"></span>
+    </div>
+</div>
+<br>
+<br>
+
+<div id="data-table" class="container">
+    <h2>Transaksi Berhasil</h2>
+    <br>
+    <br>
+    <table class="table table-light table-striped">
+        <thead class="table-dark">
+        <tr>
+            <td>Rekening Pengirim</td>
+            <td>Rekening Tujuan</td>
+            <td>Jumlah</td>
+            <td>Bank Asal</td>
+            <td>Bank Tujuan</td>
+            <td>Fee</td>
+        </tr>
+        </thead>
+        <tbody th:each="trf : ${transfers}">
+        <tr>
+            <td th:text="${trf.pengirim.noRekening}"></td>
+            <td th:text="${trf.penerima.noRekening}"></td>
+            <td th:text="${trf.jumlah}"></td>
+            <td th:text="${trf.pengirim.provider.name}"></td>
+            <td th:text="${trf.penerima.provider.name}"></td>
+            <td th:text="${trf.fee}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="col-12">
+        <form action="/logout" method="post">
+            <input type="hidden" name="_csrf" value="07b8ec05-fe21-4819-80b1-2ad57ae9450e"/>
+            <input class="btn btn-danger" type="submit" value="Logout"/>
+        </form>
+    </div>
+</div>
+</div>
+</body>
+</html>

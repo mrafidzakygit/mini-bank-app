@@ -1,0 +1,31 @@
+p {
+    font-family: Montserrat;
+}
+body{
+    background: white;
+}
+.section-padding{
+    padding: 100px 0;
+}
+.carousel-caption{
+    bottom: 500px;
+    z-index: 2;
+}
+.service .card-body i{
+    font-size: 50px;
+}
+.portfolio .card{
+    box-shadow: 15px 15px 40px rgba(0,0,0,0.15);
+}
+.carousel-caption h5{
+    font-size: 45px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 50px;
+}
+.carousel-caption{
+    width: 60%;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.9;
+}

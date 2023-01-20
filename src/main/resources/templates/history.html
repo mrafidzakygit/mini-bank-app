@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="data-table" class="container">
+  <h2>History</h2>
+  <br>
+  <br>
+  <table class="table table-light table-striped">
+    <thead class="table-dark">
+    <tr>
+      <td>Rekening Pengirim</td>
+      <td>Rekening Tujuan</td>
+      <td>Tanggal</td>
+      <td>Jumlah Ammount</td>
+    </tr>
+    </thead>
+    <tbody th:each="hist : ${histories}">
+    <tr>
+      <td th:text="${hist.noRekening}"></td>
+      <td th:text="${hist.noRekening}"></td>
+      <td th:text="${hist.tglKirim}"></td>
+      <td th:text="${hist.jumlah}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
