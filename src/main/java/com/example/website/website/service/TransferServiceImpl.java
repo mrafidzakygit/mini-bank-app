@@ -52,7 +52,7 @@ public class TransferServiceImpl implements TransferService{
         String bankTuju = rekPenerima.getProvider().getName();
 
         Transfer transfer1 = new Transfer();
-        /*transfer1.setTglkirim(Date.valueOf(LocalDate.now()));*/
+        transfer1.setTglkirim(Date.valueOf(LocalDate.now()));
         transfer1.setJumlah(transfer.getJumlah());
 
         if(bankAsal.equals(bankTuju)) {
@@ -67,7 +67,7 @@ public class TransferServiceImpl implements TransferService{
         }else if(bankAsal != bankTuju) {
             double fee = 6500;
             System.out.println(transfer1.getJumlah());
-            rekPengirim.setSaldo(rekPengirim.getSaldo()-(transfer.getJumlah()-6500));
+            rekPengirim.setSaldo((rekPengirim.getSaldo())-(transfer.getJumlah())- (fee));
             transfer1.setFee(6500);
             transfer1.setPengirim(rekPengirim);
             transfer1.setPenerima(rekPenerima);
