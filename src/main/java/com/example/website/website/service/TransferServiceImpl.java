@@ -52,12 +52,12 @@ public class TransferServiceImpl implements TransferService{
         String bankTuju = rekPenerima.getProvider().getName();
 
         Transfer transfer1 = new Transfer();
-        /*operator1.setTglkirim(Date.valueOf(LocalDate.now()));*/
+        /*transfer1.setTglkirim(Date.valueOf(LocalDate.now()));*/
         transfer1.setJumlah(transfer.getJumlah());
 
         if(bankAsal.equals(bankTuju)) {
-            //transfer.setFee(0);
             rekPengirim.setSaldo(rekPengirim.getSaldo()-(transfer.getJumlah()));
+            System.out.println(rekPengirim.getSaldo());
             transfer1.setPengirim(rekPengirim);
             transfer1.setPenerima(rekPenerima);
             rekPenerima.setSaldo(rekPenerima.getSaldo() + (transfer1.getJumlah()));

@@ -15,7 +15,7 @@ public class Rekening {
 
     private String noRekening;
 
-    private double saldo;
+    private double saldo = 1000000.0;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "nasabah_id", referencedColumnName = "id")

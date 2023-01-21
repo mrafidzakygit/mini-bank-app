@@ -30,4 +30,8 @@ public class ProviderService {
 
         return this.providerRepo.findById(Id);
     }
+
+    public Provider findByName(String name) {
+        return this.providerRepo.findByName(name);
+    }
 }

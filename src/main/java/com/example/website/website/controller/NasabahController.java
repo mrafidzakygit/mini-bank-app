@@ -47,11 +47,13 @@ public class NasabahController {
             @ModelAttribute("rekeningModel") Rekening rekening,
             @ModelAttribute("providerModel") Provider provider, Model model) {
 
+        Provider p = this.providerService.findByName(provider.getName());
         this.rekeningService.save(rekening);
         rekening.setNasabah(nasabah);
-        rekening.setProvider(provider);
-        /*rekening.setSaldo(1000000.0);*/
-        this.providerService.save(provider);
+
+        rekening.setProvider(p);
+        /*rekening.setSaldo(1000000);*/
+        /*this.providerService.save(provider);*/
         this.nasabahService.save(nasabah);
         return "redirect:/tambahrekening";
 
