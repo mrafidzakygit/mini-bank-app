@@ -64,8 +64,8 @@ public class InitDefaultUserAuth {
         userOp.setPassword(new BCryptPasswordEncoder().encode("1234"));
         userOp.setRoles(OpRole);
 
-        this.userRepo.save(userAdmin);
+        /*this.userRepo.save(userAdmin);
         this.userRepo.save(userOp);
-        this.userRepo.save(userCS);
+        this.userRepo.save(userCS);*/
     }
 }
