@@ -1,12 +1,11 @@
 package com.example.website.website.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
+@Table(name = "history")
 public class History {
 
     @Id
@@ -17,7 +16,7 @@ public class History {
 
     private String penerima;
 
-    private Date tglKirim;
+    private LocalDateTime tglKirim;
 
     private Double jumlah;
 
@@ -47,11 +46,11 @@ public class History {
         this.penerima = penerima;
     }
 
-    public Date getTglKirim() {
+    public LocalDateTime getTglKirim() {
         return tglKirim;
     }
 
-    public void setTglKirim(Date tglKirim) {
+    public void setTglKirim(LocalDateTime tglKirim) {
         this.tglKirim = tglKirim;
     }
 

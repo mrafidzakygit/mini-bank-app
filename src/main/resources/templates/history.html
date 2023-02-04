@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <div id="data-table" class="container">
   <h2>History</h2>
   <br>
@@ -18,15 +20,17 @@
       <td>Jumlah Ammount</td>
     </tr>
     </thead>
-    <tbody th:each="hist : ${histories}">
+    <tbody th:each="hist : ${history}">
     <tr>
-      <td th:text="${hist.noRekening}"></td>
-      <td th:text="${hist.noRekening}"></td>
-      <td th:text="${hist.tglKirim}"></td>
+      <td th:text="${hist.pengirim}"></td>
+      <td th:text="${hist.penerima}"></td>
+      <td th:text="${#temporals.format(hist.Tglkirim, 'dd-MMM-yyyy HH:mm:ss')}"></td>
       <td th:text="${hist.jumlah}"></td>
     </tr>
     </tbody>
   </table>
+  </form>
 </div>
+
 </body>
 </html>

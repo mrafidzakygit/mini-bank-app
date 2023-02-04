@@ -25,6 +25,9 @@ public class TransferServiceImpl implements TransferService{
     @Autowired
     RekeningService rekeningService;
 
+    @Autowired
+    private HistoryService historyService;
+
     double newSaldo;
 
     double saldo;
@@ -75,6 +78,9 @@ public class TransferServiceImpl implements TransferService{
             this.rekeningRepo.save(rekPengirim);
             this.rekeningRepo.save(rekPenerima);
             this.transferRepo.save(transfer1);
+            /*this.historyService.save(rekeningPenerima);*/
+
+
         }
     }
     @Override
